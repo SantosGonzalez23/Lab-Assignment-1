@@ -54,6 +54,7 @@ class Node{
 	   }
 	   
 	   /*
+      Performs pre-order traversal of the binary search tree.
 	   pre-order traversal
 	   Prints the value of every node preorder
 	   */
@@ -67,12 +68,16 @@ class Node{
 	   
 	   
 	   /*
+      Performs in-order traversal of the binary search tree.
 	   in-order traversal
 	   */
-	   public void inOrderTraversal(Node root){
-	      //implement in here
-	   }
-	   
+	   public void inOrderTraversal(Node root) {
+        if (root != null) {
+            inOrderTraversal(root.left);
+            System.out.print(root.value + " ");
+            inOrderTraversal(root.right);
+        }
+    }	   
 	   
 	   
 	   /*
