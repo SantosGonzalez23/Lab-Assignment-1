@@ -64,9 +64,7 @@ class Node{
             preOrderTraversal(root.left);
             preOrderTraversal(root.right);
         }
-    }
-	   
-	   
+    }	   
 	   /*
       Performs in-order traversal of the binary search tree.
 	   in-order traversal
@@ -77,22 +75,18 @@ class Node{
             System.out.print(root.value + " ");
             inOrderTraversal(root.right);
         }
-    }	   
-	   
-	   
+    }
 	   /*
       Performs post-order traversal of the binary search tree.
 	   post-order traversal
 	   */
-	  
 	  public void postOrderTraversal(Node root) {
         if (root != null) {
             postOrderTraversal(root.left);
             postOrderTraversal(root.right);
             System.out.print(root.value + " ");
         }
-    }	   
-	   
+    } 
 	   
 	   /*
       Searches for a node with the given value in the binary search tree.
@@ -102,46 +96,39 @@ class Node{
       @return True if the value is found, false otherwise
 	   */
 	   public boolean find(Node root, int key) {
-        if (root == null) {
+        if (root == null)
             return false;
-        }
-        if (root.value == key) {
+        if (root.value == key)
             return true;
-        }
-        if (key < root.value) {
+        if (key < root.value)
             return find(root.left, key);
-        } else {
+        else
             return find(root.right, key);
-        }
-    }	   
-	   
-	   
+    }
 	   /*
 	    Finds the node with the smallest key in the binary search tree.
         @return The value of the node with the smallest key.
       */
-	    public int getMin(Node root) {
-        if (root == null) {
+	   public int getMin(Node root) {
+        if (root == null)
             throw new IllegalArgumentException("Tree is empty");
-        }
-        if (root.left == null) {
-            return root.value;
-        }
-        return getMin(root.left);
-    }	  
-	  
-	  
-	   /*
+        while (root.left != null)
+            root = root.left;
+        return root.value;
+    }
+    	   /*
 	   a method to find the node in the tree
 	   with a largest key
+      @return The value of the node with the largest key.
 	   */
-	   public int getMax(Node root){
-         //implement in here
-	   }
-	   
-	   
-	   
-	   /*
+	    public int getMax(Node root) {
+        if (root == null)
+            throw new IllegalArgumentException("Tree is empty");
+        while (root.right != null)
+            root = root.right;
+        return root.value;
+    }
+    	   /*
 	   this method will not compile until getMax
 	   is implemented
 	   */
@@ -196,9 +183,3 @@ class Node{
 	      
 	   }  
 	}
-
-        System.out.print("In-order traversal: ");
-        t1.inOrderTraversal();
-        System.out.println();
-    }
-}
