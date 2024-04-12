@@ -117,14 +117,18 @@ class Node{
 	   
 	   
 	   /*
-	   a method to find the node in the tree
-	   with a smallest key
-	   */
-	   public int getMin(Node root){
-         //implement in here
-	      
-	   }
-	  
+	    Finds the node with the smallest key in the binary search tree.
+        @return The value of the node with the smallest key.
+      */
+	    public int getMin(Node root) {
+        if (root == null) {
+            throw new IllegalArgumentException("Tree is empty");
+        }
+        if (root.left == null) {
+            return root.value;
+        }
+        return getMin(root.left);
+    }	  
 	  
 	  
 	   /*
