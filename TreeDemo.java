@@ -81,14 +81,17 @@ class Node{
 	   
 	   
 	   /*
+      Performs post-order traversal of the binary search tree.
 	   post-order traversal
 	   */
 	  
-	   public void postOrderTraversal(Node root){
-         //implement in here
-		   
-	   }
-	   
+	  public void postOrderTraversal(Node root) {
+        if (root != null) {
+            postOrderTraversal(root.left);
+            postOrderTraversal(root.right);
+            System.out.print(root.value + " ");
+        }
+    }	   
 	   
 	   
 	   /*
